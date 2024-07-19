@@ -4,9 +4,7 @@ import InputField from '../../componants/global/InputField';
 import SubmitButton from '../../componants/global/SubmitButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { Auth_Data } from '../../constants/auth_constant';
-import theme from '../../theme';
-import { auth } from '../firebaseConfig';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signIn } from '../firebaseMethods';
 
 const Login = () => {
   const { text, checkbox_text, reset_link, button_text, fields, link } =
@@ -33,24 +31,19 @@ const Login = () => {
     });
   };
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setUserData({ email: '', password: '' });
-    setRememberMe(false);
-    signInWithEmailAndPassword(auth, userData.email, userData.password)
-      .then((res) => {
-        const user = res.user;
+    e.preventDefault();
+    setRememberMe(false)
+    signIn(userData.email, userData.password)
+      .then((user) => {
         if (user) {
           localStorage.setItem('token', JSON.stringify(user));
-          navigate('/dashboard')
+          navigate('/dashboard');
+        } else {
+          navigate('/');
         }
-        else {
-          navigate('/')
-        }
-        console.log('User login account:', user);
       })
       .catch((error) => {
-        const errorMessage = error.message;
-        console.error('Error login user:', errorMessage);
+        console.error('Error login user:', error.message);
       });
   };
   return (
@@ -70,7 +63,6 @@ const Login = () => {
           mt: 5,
           maxWidth: '380px',
           mx: 'auto',
-
           color: 'common.white',
         }}
       >
@@ -149,7 +141,7 @@ const Login = () => {
               </>
             }
           />
-          <Link to={link?.href}>
+          <Link to={reset_link?.href}>
             <Typography
               sx={{
                 fontSize: '16px',
@@ -159,9 +151,10 @@ const Login = () => {
                 pt: 1
               }}
             >
-              {link?.text}
+              {reset_link?.text}
             </Typography>
           </Link>
+          
         </Box>
         <Box
           sx={{
@@ -196,6 +189,20 @@ const Login = () => {
               },
             }}
           />
+          <Link to={link?.href}>
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: 500,
+                color: 'common.white',
+                textDecoration: 'underLine',
+                pt: 1
+              }}
+            >
+              {link?.text}
+            </Typography>
+          </Link>
+          
         </Box>
       </Box>
     </Box>

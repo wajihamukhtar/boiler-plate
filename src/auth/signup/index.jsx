@@ -5,8 +5,8 @@ import SubmitButton from '../../componants/global/SubmitButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { Auth_Data } from '../../constants/auth_constant';
 import { getAuth } from 'firebase/auth';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebaseConfig';
+import { signUp } from '../firebaseMethods';
 
 
 const Signup = () => {
@@ -42,18 +42,17 @@ const Signup = () => {
   const auth = getAuth(app)
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, userData.email.trim(), userData.password.trim())
-      .then((res) => {
-        const user = res.user;
-        if (user) {
-          navigate('/')
-        }
-        console.log('User created acount:', user);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.error('Error creating user:', errorMessage);
-      });
+    signUp(userData.email.trim(), userData.password.trim())
+    .then((user) => {
+      if (user) {
+        navigate('/');
+      } else {
+        navigate('/');
+      }
+    })
+    .catch((error) => {
+      console.error('Error create user:', error.message);
+    });
     setUserData({
       first_name: '',
       last_name: '',

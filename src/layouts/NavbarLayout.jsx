@@ -6,16 +6,13 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import { Auth_Data } from '../constants/auth_constant';
 import { useNavigate } from 'react-router-dom';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import { getAuth } from 'firebase/auth';
-import Search from '../componants/global/Search';
-const pages = ['About', 'Pricing', 'Blog'];
+import { doSignOut } from '../auth/firebaseMethods';
 const settings = ['Logout'];
 
 export const NavbarLayout = ({ onNavOpen }) => {
@@ -32,16 +29,11 @@ export const NavbarLayout = ({ onNavOpen }) => {
     setAnchorElUser(null);
   };
   const handleLogout = () => {
-    const auth=getAuth()
-    const user=auth.currentUser
-    if (user) {
-          navigate('/')
-          localStorage.removeItem('token');
-        }
-        else{
-          console.log('error')
-  }
-}
+    doSignOut().then(()=>{
+      navigate('/')
+      localStorage.removeItem('token');
+    })
+  };
   return (
     <>
       <Box

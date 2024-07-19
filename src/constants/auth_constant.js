@@ -4,9 +4,9 @@ export const Auth_Data = {
     login: {
       text: 'LOGIN',
       checkbox_text: 'Remember me',
-      reset_link: { text: 'click here?', href: '#' },
+      reset_link: { text: 'Resetpassword?', href: '/resetpassword' },
       button_text: 'Login',
-      link: { text: 'Sign up', href: '/signup' },
+      link: { text: 'Sign up', href: '/signup', signin:'/google' },
       fields: [
         { type: 'email', label: 'Email:', place_holder: 'Enter your email' },
         {
@@ -15,6 +15,10 @@ export const Auth_Data = {
           place_holder: 'Enter your password',
         },
       ],
+    },
+    reset: {
+      text: 'RESET PASSWORD',
+      button_text: 'Send Current Email',
     },
     signup: {
       text: 'SIGN UP',

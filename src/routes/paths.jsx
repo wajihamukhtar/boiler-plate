@@ -1,5 +1,6 @@
 // Auth
 import Login from '../auth/login';
+import ResetPassword from '../auth/resetpassword';
 import Signup from '../auth/signup';
 import AuthLayout from '../layouts/AuthLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
@@ -9,6 +10,7 @@ export const routes = {
   dashboard:'/dashboard',
     login: '/',
     signup: '/signup',
+    resetpassword:'/resetpassword',
     error: '*',
     navbar:'/'
 
@@ -24,6 +26,10 @@ export const routes = {
         {
           path: routes.signup,
           element: <Signup />,
+        },
+        {
+          path: routes.resetpassword,
+          element: <ResetPassword/>,
         },
         {
           path: routes.navbar,

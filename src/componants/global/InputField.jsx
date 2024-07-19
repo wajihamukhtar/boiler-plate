@@ -36,7 +36,7 @@ const InputField = ({
       {label && (
         <Typography
           component={'label'}
-          sx={{ fontSize: '16px', fontWeight: 500, color: '#404040' }}
+          sx={{ fontSize: '16px', fontWeight: 500, color: 'common.white' }}
         >
           {label}
         </Typography>

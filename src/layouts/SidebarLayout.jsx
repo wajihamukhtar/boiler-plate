@@ -2,7 +2,7 @@ import { Backdrop, Box, Drawer, Typography, useMediaQuery } from '@mui/material'
 import { Auth_Data } from '../constants/auth_constant';
 import SidebarAccordion from '../componants/global/SidebarAccordion';
 import PersonPinCircleOutlinedIcon from '@mui/icons-material/PersonPinCircleOutlined';
-// import img from '../images/profile'
+import img from '../images/person-removebg-preview (1).png'
 
 export const SidebarLayout = (props) => {
     const { open, onClose } = props;
@@ -11,7 +11,7 @@ export const SidebarLayout = (props) => {
 
     const content = (
     <>
-      {/* <Box sx={{width:'100%' ,maxHeight: '800px'}} ><Typography sx={{color:'common.white',display:"flex" ,justifyContent:'center'}} component={'span'}><img src={img} alt=''/></Typography></Box> */}
+      <Box sx={{width:'100%' ,}} ><Typography sx={{color:'common.white',display:"flex" ,justifyContent:'center'}} component={'span'}><img src={img} alt=''/></Typography></Box>
         <Box sx={{ width: 280, height: '100vh', maxHeight: '500px', overflowY: 'auto', mb: 8 }} role="presentation">
             <SidebarAccordion sidebarLinks={sidebarLinks} />
         </Box>
