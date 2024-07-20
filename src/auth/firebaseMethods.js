@@ -19,7 +19,6 @@ export const signUp = async (email, password) => {
     console.log(error.message);
   }
 };
-
 export const Resetpassword = (email) => {
   return sendPasswordResetEmail(auth, email)
 }

@@ -173,9 +173,9 @@ const Login = () => {
             style={{
               width: '60%',
               height: '40px',
-              borderRadius: '10px',
               fontSize: '16px',
               fontWeight: 500,
+              borderRadius: '10px',
               color:
                 !userData?.email || !userData?.password || !rememberMe
                   ? '#000 !important'
@@ -183,9 +183,9 @@ const Login = () => {
               backgroundColor:
                 !userData?.email || !userData?.password || !rememberMe
                   ? '#e6ffe6'
-                  : 'button.main',
+                  : 'button.color.main',
               '&:hover': {
-                backgroundColor: 'button.dark',
+                backgroundColor: 'button.color.dark',
               },
             }}
           />

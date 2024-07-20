@@ -7,14 +7,18 @@ const theme = createTheme({
             hover:'#182051'
         },
         button: {
+          color:{
             main: '#5965b2',
             light:'#609bf2',
-            dark:'#303f9f',
+            dark:'#303f9f'
+          },
+        
         },
         input:{
             light:'#335893',
             main: '#2c4975',
             dark:'#172945',
+          
         },
         icon:{
           main:'#80deea'  ,

@@ -13,6 +13,7 @@ import { Auth_Data } from '../constants/auth_constant';
 import { useNavigate } from 'react-router-dom';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { doSignOut } from '../auth/firebaseMethods';
+import Search from '../componants/global/Search';
 const settings = ['Logout'];
 
 export const NavbarLayout = ({ onNavOpen }) => {
@@ -52,8 +53,10 @@ export const NavbarLayout = ({ onNavOpen }) => {
         }}
       >
         <AppBar position="static" sx={{ px: 2 ,backgroundColor:'primary.dark'}}>
+        
           <Toolbar sx={{ height: '65px',display:'flex' ,justifyContent:'space-between'  }}>
             <SchoolRoundedIcon sx={{ mr: 1 }} />
+            
             <Typography
               variant="h5"
               noWrap
@@ -85,11 +88,14 @@ export const NavbarLayout = ({ onNavOpen }) => {
                 letterSpacing: '.1rem',
                 color: 'inherit',
                 textDecoration: 'none',
-
+                
               }}
-            >
+              >
             </Typography>
-            <Box sx={{ flexGrow: 0 ,mr:'0'}}>
+            <Box sx={{ flexGrow: 0 ,mr:'0',display:'flex'}}>
+            <Box sx={{display:'flex', flexGrow: 0 ,pt:1,pr:2 }}>
+              <Search/>
+            </Box>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="wa" />
