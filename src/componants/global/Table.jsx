@@ -2,10 +2,7 @@ import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Box, Typography} from '@mui/material';
 
-
-
 function Table({ columns, rows, heading, SubmitButton }) {
-
     return (
         <Box sx={{ height: 400, width: '100%' }}>
             <Typography variant='h3' sx={{ mb: 3, textAlign: 'center' }}>{heading}</Typography>
@@ -26,5 +23,4 @@ function Table({ columns, rows, heading, SubmitButton }) {
         </Box>
     );
 }
-
 export default Table;

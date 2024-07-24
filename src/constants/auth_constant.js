@@ -69,8 +69,8 @@ export const Auth_Data = {
             link: '/students/student-add',
           },
           {
-            text: 'StudentList',
-            link: '/students/student-list',
+            text: 'Table',
+            link: '/table',
           },
   
         ],

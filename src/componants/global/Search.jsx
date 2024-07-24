@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import InputField from './InputField';
 import SubmitButton from './SubmitButton';
 import SearchIcon from '@mui/icons-material/Search';
+import { Box } from '@mui/material';
 const Search = () => {
     const [searchValue, setSearchValue] = useState('')
     const [data, setData] = useState([])
@@ -43,28 +44,31 @@ const Search = () => {
     }
     return (
       <>
+      <Box sx={{display:'flex',backgroundColor: 'primary.main', borderRadius:'40px ',pt:'4px',pb:'4px',border: '2px solid primary.light',height:'25px'}}>
+      <SearchIcon sx={{color:'#000',fontSize:'20px',pt:0.5,ml:0.8,color:'#fff'}}/>
         <InputField
-             icon={<SearchIcon/>}
               type={'text'}
               placeholder={'search files..'}
               onChange={handleChange}
               name={'search'}
               value={searchValue}
               style={{
-                fontSize: '13px',
+                fontSize: '15px',
                 fontWeight: 400,
-                border: '2px solid #E4E4E4',
-                height: '30px',
+                border: 'none',
+                height: '25px',
+                color:'common.white',
+                backgroundColor:'primary.main'
               }}
-            />
+           />
         <SubmitButton
             text={'Search'}
             onClick={() => handleSearch(searchValue, employess)}
             type={'submit'}
             style={{
               width: '10%',
-              height: '30px',
-              fontSize: '12px',
+              height: '25px',
+              fontSize: '11px',
               fontWeight: 500,
               borderRadius: '10px',
               color:'common.white',
@@ -74,6 +78,7 @@ const Search = () => {
               },
             }}
           />
+           </Box>
         {/* <h3>{'Emplpyees'}</h3>
         <div style={{ display: 'flex', gap: '20px', margin: '20px' }}>
           {data?.length === 0 ? <h3>{'No data found'}</h3> : null}

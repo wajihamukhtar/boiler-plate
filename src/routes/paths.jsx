@@ -3,20 +3,42 @@ import Login from '../auth/login';
 import ResetPassword from '../auth/resetpassword';
 import Signup from '../auth/signup';
 import Search from '../componants/global/Search';
+import Table from '../componants/global/Table';
 import AuthLayout from '../layouts/AuthLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
 import { NavbarLayout } from '../layouts/NavbarLayout';
 
 export const routes = {
-  dashboard:'/dashboard',
     login: '/',
     signup: '/signup',
     search:'/search',
     resetpassword:'/resetpassword',
+    table:'/table',
     error: '*',
-    navbar:'/'
+    navbar:'/',
+    dashboard:'/dashboard'
 
   };
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'firstName', headerName: 'First name', width: 150 },
+    { field: 'lastName', headerName: 'Last name', width: 150 },
+    { field: 'age', headerName: 'Age', type: 'number', width: 110 },
+    { field: 'fullName', headerName: 'Full name', description: 'This column has a value getter and is not sortable.', sortable: false, width: 160, valueGetter: (params) => `${params.row.firstName || ''} ${params.row.lastName || ''}` },
+  ];
+  
+  const rows = [
+    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  ];
+  
   export const publicRoutes = [
     {
       element: <AuthLayout />,
@@ -45,20 +67,21 @@ export const routes = {
         //   path: routes.sidebar,
         //   element: <SidebarLayout />,
         // },
+        {
+            path: routes.table,
+            element: <Table columns={columns} rows={rows}/>,
+          }
+         
       ],
     },
   ];
-  
+
+
   export const privateRoutes = [
-    {path:routes.dashboard,
-      element: <DashboardLayout />,
-      // children: [
+    {
+      path:routes.dashboard,
+      element: <DashboardLayout/>,
+      children: [
         // students routes
-        // {
-        //   path: routes.students,
-        //   element: <NavbarLayout />,
-        // },
-      // ],
-    },
-  ];
-  
+        // 
+  ]}]

@@ -50,7 +50,6 @@ const DashboardLayout = () => {
   }, []);
   return (
     <>
-    
       <NavbarLayout onNavOpen={() => setOpenNav(true)} />
       <SidebarLayout onClose={() => setOpenNav(false)} open={openNav} />
       <LayoutRoot>

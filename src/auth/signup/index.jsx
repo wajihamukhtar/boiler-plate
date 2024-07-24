@@ -4,8 +4,6 @@ import InputField from '../../componants/global/InputField';
 import SubmitButton from '../../componants/global/SubmitButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { Auth_Data } from '../../constants/auth_constant';
-import { getAuth } from 'firebase/auth';
-import { app } from '../firebaseConfig';
 import { signUp } from '../firebaseMethods';
 
 
@@ -26,7 +24,6 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
   };
-
   useEffect(() => {
     if (
       userData?.first_name &&
@@ -39,7 +36,6 @@ const Signup = () => {
       return setDisabled(true);
     }
   }, [userData]);
-  const auth = getAuth(app)
   const handleSubmit = (e) => {
     e.preventDefault();
     signUp(userData.email.trim(), userData.password.trim())

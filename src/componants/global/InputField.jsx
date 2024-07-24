@@ -14,7 +14,7 @@ const InputField = ({
   style,
   type,
   placeholder,
-  icon,
+ startIcon,
   name,
   value,
   onChange,
@@ -45,7 +45,7 @@ const InputField = ({
         <OutlinedInput
           required
           fullWidth
-          icon={icon}
+          startIcon={startIcon}
           placeholder={placeholder}
           type={
             type && type === 'password'

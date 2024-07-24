@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const PublicRoutes = () => {
     const token = localStorage.getItem('token');
-    return token ? <Navigate to="/" /> : <Outlet />;
+    return token ? <Navigate to="/table" /> : <Outlet />;
 };
 
 export default PublicRoutes;

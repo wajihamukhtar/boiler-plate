@@ -9,7 +9,6 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
-import { Auth_Data } from '../constants/auth_constant';
 import { useNavigate } from 'react-router-dom';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { doSignOut } from '../auth/firebaseMethods';
@@ -17,7 +16,6 @@ import Search from '../componants/global/Search';
 const settings = ['Logout'];
 
 export const NavbarLayout = ({ onNavOpen }) => {
-  const { text, button_text, link } = Auth_Data?.navbar || {};
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const navigate = useNavigate()
   // const handleOpenNavMenu = (event) => {
@@ -55,8 +53,7 @@ export const NavbarLayout = ({ onNavOpen }) => {
         <AppBar position="static" sx={{ px: 2 ,backgroundColor:'primary.dark'}}>
         
           <Toolbar sx={{ height: '65px',display:'flex' ,justifyContent:'space-between'  }}>
-            <SchoolRoundedIcon sx={{ mr: 1 }} />
-            
+          <SchoolRoundedIcon sx={{ ml: {md: 30,sm:0} }} />
             <Typography
               variant="h5"
               noWrap
@@ -73,7 +70,7 @@ export const NavbarLayout = ({ onNavOpen }) => {
               }}
             >
             </Typography>
-            <SchoolRoundedIcon sx={{ display: { xs: 'none' }, mr: 1 }} />
+            <SchoolRoundedIcon sx={{ display: { xs: 'none' }, mr: 0 }} />
             <Typography
               variant="h4"
               noWrap
@@ -92,9 +89,9 @@ export const NavbarLayout = ({ onNavOpen }) => {
               }}
               >
             </Typography>
-            <Box sx={{ flexGrow: 0 ,mr:'0',display:'flex'}}>
-            <Box sx={{display:'flex', flexGrow: 0 ,pt:1,pr:2 }}>
-              <Search/>
+            <Box sx={{ flexGrow: 0 ,display:'flex'}}>
+            <Box sx={{display:'flex', flexGrow: 0 ,pt:0.5,pr:2 }}>
+              <Search />
             </Box>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
